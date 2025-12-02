@@ -33,6 +33,7 @@ export const LANG_SPACEVRGAME = {
 ★ Collaborer efficacement en équipe avec répartition claire des tâches
 ★ Intégrer logique spatiale, physique et design d'interaction
 ★ Optimiser les performances pour une expérience VR fluide`,
+        tech_stack_title: "Technologies utilisées",
         gallerie_name: "Gallerie d'images du jeu VR spatial",
         github_link: "https://github.com/Lenoush/space-vr-game",
         footer: `👩‍💻 Lena's GitHub`
@@ -70,6 +71,7 @@ export const LANG_SPACEVRGAME = {
 ★ Collaborate effectively in a team with clear task distribution
 ★ Integrate spatial logic, physics, and interaction design
 ★ Optimize performance for a smooth VR experience`,
+        tech_stack_title: "Technologies used",
         gallerie_name: "Space VR Game Image Gallery",
         github_link: "https://github.com/Lenoush/space-vr-game",
         footer: `👩‍💻 Lena's GitHub`

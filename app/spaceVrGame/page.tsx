@@ -5,11 +5,12 @@ import Link from "next/link";
 import { LANG_SPACEVRGAME } from "@/i18n/lang-spaceVrGame";
 import { ImageCarousel } from "@/app/utils/image";
 import { FeatureCard, ContributionCard } from "@/app/utils/card";
-import Header from "@/app/components/header";
+import Header from "@/app/components/header_utils/header";
 import Footer from "@/app/components/footer";
 import LearningSection from "../components/learningSection";
 import ImagesGallery from "../components/imagesGallery";
 import VideoDemo from "../components/videoDemo";
+import TechStack from "../components/techStack";
 
 type Lang = "fr" | "en";
 
@@ -80,30 +81,17 @@ export default function SpaceVrGamePage() {
                     </div>
                 </div>
 
+                {/* Tech Stack */}
+                <TechStack
+                    title={t.tech_stack_title}
+                    technologies={["Unity", "C#", "Meta Quest 3", "Blender", "VR Toolkit"]}
+                />
+
                 {/* Learning Section */}
                 <LearningSection
                     learn_title={t.learn_title}
                     learn_points={t.learn_points}
                 />
-
-
-                {/* Tech Stack */}
-                <div className="  rounded-2xl shadow-xl p-8 mb-8 border border-gray-100">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                        <span className="text-4xl">🔧 </span>
-                        Technologies utilisées
-                    </h2>
-                    <div className="flex flex-wrap gap-3">
-                        {["Unity", "C#", "Meta Quest 3", "Blender", "VR Toolkit"].map((tech) => (
-                            <span
-                                key={tech}
-                                className="bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-5 py-2 rounded-full font-semibold shadow-md"
-                            >
-                                {tech}
-                            </span>
-                        ))}
-                    </div>
-                </div>
 
                 {/*Images Gallery */}
                 <ImagesGallery
