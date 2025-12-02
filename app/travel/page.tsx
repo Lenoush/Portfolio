@@ -9,6 +9,7 @@ import { MetricCard, StepCard } from "@/app/utils/card";
 import Header from "@/app/components/header";
 import Footer from "@/app/components/footer";
 import LearningSection from "@/app/components/learningSection";
+import VideoDemo from "@/app/components/videoDemo";
 
 type Lang = "fr" | "en";
 
@@ -71,20 +72,10 @@ export default function TravelPage() {
                 </div>
 
                 {/* Demo Video */}
-                <div className="  rounded-2xl shadow-xl p-8 mb-8 border border-gray-100">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                        <span className="mr-2">🎥 </span>
-                        {t.demo_title}
-                    </h2>
-                    <div className="aspect-video w-full rounded-xl overflow-hidden shadow-lg border border-gray-200">
-                        <video
-                            className="w-full h-full"
-                            src="/travel/Travel_project_video.mp4"
-                            controls
-                            autoPlay={false}
-                        />
-                    </div>
-                </div>
+                <VideoDemo
+                    title={t.demo_title}
+                    src="/travel/Travel_project_video.mp4"
+                />
 
                 {/* Technical Steps */}
                 <div className="  rounded-2xl shadow-xl p-8 mb-8 border border-gray-100">

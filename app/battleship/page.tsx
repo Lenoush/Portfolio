@@ -10,6 +10,7 @@ import Header from "@/app/components/header";
 import Footer from "@/app/components/footer";
 import LearningSection from "@/app/components/learningSection";
 import ImagesGallery from "../components/imagesGallery";
+import VideoDemo from "../components/videoDemo";
 
 export default function BattleshipPage() {
     const [lang, setLang] = useState<"fr" | "en">("fr");
@@ -34,20 +35,10 @@ export default function BattleshipPage() {
                 </div>
 
                 {/* Demo Video */}
-                <div className="  rounded-2xl shadow-xl p-8 mb-8 border border-gray-100">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                        <span className="mr-2">🎥 </span>
-                        {t.demo_title}
-                    </h2>
-                    <div className="aspect-video w-full rounded-xl overflow-hidden shadow-lg border border-gray-200">
-                        <video
-                            className="w-full h-full"
-                            src="/battleship/Battleship_project_video.mp4"
-                            controls
-                            autoPlay={false}
-                        />
-                    </div>
-                </div>
+                <VideoDemo
+                    title={t.demo_title}
+                    src="/battleship/Battleship_project_video.mp4"
+                />
 
                 {/* DESCRIPTION */}
                 <div className="  rounded-2xl shadow-xl p-8 mb-8 border border-gray-100">
