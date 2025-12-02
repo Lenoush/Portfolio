@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import LanguageSwitcher from "@/app/components/languageSwitcher";
+import LanguageSwitcher from "@/app/components/header_utils/languageSwitcher";
 
 type HeaderProps = {
     lang: "fr" | "en";

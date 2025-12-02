@@ -4,7 +4,7 @@ import { useState } from "react";
 import { LANG_ZOIDBERG } from "@/i18n/lang-zoidberg";
 import ReactMarkdown from "react-markdown";
 import { modelsData } from "@/app/zoidberg/metadata";
-import Header from "@/app/components/header";
+import Header from "@/app/components/header_utils/header";
 import Footer from "@/app/components/footer";
 import TestInterfaceProps from "@/app/zoidberg/modelInterface";
 import images from "./zoidbergImages";
@@ -60,7 +60,7 @@ export default function ZoidbergPage() {
                         </h2>
                     </div>
 
-                    {isDatasetOpen && ( <div>
+                    {isDatasetOpen && (<div>
 
                         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
                             <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-5 rounded-xl border border-blue-200">
@@ -142,7 +142,7 @@ export default function ZoidbergPage() {
                         </h2>
                     </div>
 
-                    {isPreprocessOpen && ( <div>
+                    {isPreprocessOpen && (<div>
 
                         {t.preprocessing_steps.map((step, i) => (
                             <div key={i} className="mb-8 bg-gray-50 p-6 rounded-xl border border-gray-200">
@@ -176,7 +176,7 @@ export default function ZoidbergPage() {
                         </h2>
                     </div>
 
-                    {isBenchmarkOpen &&  ( <div>
+                    {isBenchmarkOpen && (<div>
 
                         {/* Comparaison Test vs Validation pour chaque modèle */}
                         <h3 className="text-xl font-semibold mb-4 text-gray-800">{t.same_models_comparison_title}</h3>

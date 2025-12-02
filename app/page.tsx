@@ -6,8 +6,10 @@ import Link from "next/link";
 import { LANG, Language } from "@/i18n/lang";
 import ReactMarkdown from "react-markdown";
 import Image from "next/image";
-import LanguageSwitcher from "@/app/components/languageSwitcher";
+import LanguageSwitcher from "@/app/components/header_utils/languageSwitcher";
 import Footer from "./components/footer";
+import PersoButton from "./components/home_components/persoButton";
+import ProjectButton from "./components/home_components/projectButton";
 
 export default function Home() {
   const [lang, setLang] = useState<Language>("fr");
@@ -52,35 +54,28 @@ export default function Home() {
 
         {/* Informations de contact - 2 colonnes */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-          {/* Ligne 1 */}
+
+          {/* LINKEDIN*/}
           <div className="text-gray-700">{t.location} : Paris, France</div>
-          <Link
+          <PersoButton
+            title={t.linkedin}
             href="https://www.linkedin.com/in/lena-oudjman-0a36b6226/"
-            target="_blank"
-            className="bg-gray-700 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded-lg text-center transition-colors"
-          >
-            {t.linkedin}
-          </Link>
+          />
 
-          {/* Ligne 2 */}
+          {/* GITHUB*/}
           <div className="text-gray-700">{t.email} : lenaoudjman@yahoo.fr</div>
-          <Link
+          <PersoButton
+            title={t.github}
             href="https://github.com/Lenoush"
-            target="_blank"
-            className="bg-gray-700 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded-lg text-center transition-colors"
-          >
-            {t.github}
-          </Link>
+          />
 
-          {/* Ligne 3 */}
+          {/* CV*/}
           <div className="text-gray-700">{t.phone} : +33 6 66 21 57 10</div>
-          <a
+          <PersoButton
+            title={t.cv}
             href="/CV_Lena_Oudjman_FR.pdf"
             download
-            className="bg-gray-700 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded-lg text-center transition-colors"
-          >
-            {t.cv}
-          </a>
+          />
         </div>
 
         <hr className="border-gray-300 mb-8" />
@@ -92,89 +87,50 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Projet 1 - Zoidberg */}
-          <div className="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow bg-gradient-to-br from-blue-50 to-white">
-            <h4 className="text-xl font-semibold text-gray-900 mb-3">
-              {t.proj_zoidberg}
-            </h4>
-            <div className="text-gray-600 mb-4">
-              <ReactMarkdown>{t.proj_zoidberg_description}</ReactMarkdown>
-            </div>
-            <Link
-              href="/zoidberg"
-              className="inline-block w-full md:w-auto bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg text-center transition-colors"
-            >
-              {t.place_to_click_on}
-            </Link>
-          </div>
+          <ProjectButton 
+            title={t.proj_zoidberg}
+            description={t.proj_zoidberg_description}
+            link="/zoidberg"
+            click_on={t.place_to_click_on}
+            color="blue"
+          />
 
           {/* Projet 2 - Travel */}
-          <div className="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow bg-gradient-to-br from-green-50 to-white">
-            <h4 className="text-xl font-semibold text-gray-900 mb-3">
-              {t.proj_travel}
-            </h4>
-            <div className="text-gray-600 mb-4">
-              <ReactMarkdown>{t.proj_travel_description}</ReactMarkdown>
-            </div>
-            <Link
-              href="/travel"
-              className="inline-block w-full md:w-auto bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-lg text-center transition-colors"
-            >
-              {t.place_to_click_on}
-            </Link>
-          </div>
+          <ProjectButton 
+            title={t.proj_travel}
+            description={t.proj_travel_description}
+            link="/travel"
+            click_on={t.place_to_click_on}
+            color="green"
+          />
 
           {/* Projet 3 - Battleship */}
-          <div className="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow bg-gradient-to-br from-purple-50 to-white">
-            <h4 className="text-xl font-semibold text-gray-900 mb-3">
-              {t.proj_battleship}
-            </h4>
-            <div className="text-gray-600 mb-4">
-              <ReactMarkdown>{t.proj_battleship_description}</ReactMarkdown>
-            </div>
-            <Link
-              href="/battleship"
-              className="inline-block w-full md:w-auto bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-6 rounded-lg text-center transition-colors"
-            >
-              {t.place_to_click_on}
-            </Link>
-          </div>
+          <ProjectButton 
+            title={t.proj_battleship}
+            description={t.proj_battleship_description}
+            link="/battleship"
+            click_on={t.place_to_click_on}
+            color="purple"
+          />
 
           {/* Projet 4 - Sparta */}
-          <div className="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow bg-gradient-to-br from-pink-50 to-white">
-            <h4 className="text-xl font-semibold text-gray-900 mb-3">
-              {t.proj_sparta}
-            </h4>
-            <div className="text-gray-600 mb-4">
-              <ReactMarkdown>{t.proj_sparta_description}</ReactMarkdown>
-            </div>
-            <Link
-              href="https://spartainvest.fr/landing"
-              target="_blank"
-              className="inline-block w-full md:w-auto bg-pink-600 hover:bg-pink-700 text-white font-semibold py-2 px-6 rounded-lg text-center transition-colors"
-            >
-              {t.place_to_click_on}
-            </Link>
-          </div>
+          <ProjectButton
+            title={t.proj_sparta}
+            description={t.proj_sparta_description}
+            link="https://spartainvest.fr/landing"
+            click_on={t.place_to_click_on}
+            color="pink"
+          />
 
           {/* Projet 5 - VR Space Game */}
-          <div className="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow bg-gradient-to-br from-cyan-50 to-white">
-            <h4 className="text-xl font-semibold text-gray-900 mb-3">
-              {t.proj_vr_space_game}
-            </h4>
-            <div className="text-gray-600 mb-4">
-              <ReactMarkdown>{t.proj_vr_space_game_description}</ReactMarkdown>
-            </div>
-            <Link
-              href="/spaceVrGame"
-              className="inline-block w-full md:w-auto bg-cyan-600 hover:bg-cyan-700 text-white font-semibold py-2 px-6 rounded-lg text-center transition-colors"
-            >
-              {t.place_to_click_on}
-            </Link>
-          </div>
+          <ProjectButton
+            title={t.proj_vr_space_game}
+            description={t.proj_vr_space_game_description}
+            link="/spaceVrGame"
+            click_on={t.place_to_click_on}
+            color="cyan"          />
 
         </div>
-
-        <hr className="border-gray-300 my-8" />
 
         {/* Footer */}
         <Footer

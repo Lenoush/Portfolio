@@ -6,7 +6,7 @@ import Image from "next/image";
 import { TRAVEL } from "@/i18n/lang-travel";
 import ReactMarkdown from "react-markdown";
 import { MetricCard, StepCard } from "@/app/utils/card";
-import Header from "@/app/components/header";
+import Header from "@/app/components/header_utils/header";
 import Footer from "@/app/components/footer";
 import LearningSection from "@/app/components/learningSection";
 import VideoDemo from "@/app/components/videoDemo";

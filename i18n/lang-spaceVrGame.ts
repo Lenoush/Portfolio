@@ -6,7 +6,7 @@ export const LANG_SPACEVRGAME = {
         intro: "Explorez un vaisseau spatial endommagé en VR et effectuez des tâches de survie et de réparation via des interactions immersives.",
         demo_title: "Démonstration vidéo",
         description_title: "Spécificités du projet",
-        description_text: "Projet scolaire développé en équipe de 3 personnes à Epitech Paris. Le joueur se retrouve à bord d'un vaisseau spatial endommagé et doit accomplir diverses missions de réparation grâce à des interactions VR réalistes sur Meta Quest 3. Le jeu inclut :",
+        description_text: "Le joueur se retrouve à bord d'un vaisseau spatial endommagé et doit accomplir diverses missions de réparation grâce à des interactions VR réalistes sur Meta Quest 3. Le jeu inclut :",
         features: [
             "Système de lumière interactif (click and light)",
             "Bracelet de géolocalisation avec points lumineux indiquant les zones d'interaction",
@@ -36,7 +36,7 @@ export const LANG_SPACEVRGAME = {
         tech_stack_title: "Technologies utilisées",
         gallerie_name: "Gallerie d'images du jeu VR spatial",
         github_link: "https://github.com/Lenoush/space-vr-game",
-        footer: `👩‍💻 Lena's GitHub`
+        footer: `Lena's GitHub`
     },
     en: {
         title: "Space VR Game",
@@ -44,7 +44,7 @@ export const LANG_SPACEVRGAME = {
         intro: "Explore a damaged spaceship in VR and perform survival and repair tasks through immersive interactions.",
         demo_title: "Project demo",
         description_title: "Project specifications",
-        description_text: "School project developed by a team of 3 at Epitech Paris. The player finds themselves aboard a damaged spaceship and must complete various repair missions using realistic VR interactions on Meta Quest 3. The game includes:",
+        description_text: "The player finds themselves aboard a damaged spaceship and must complete various repair missions using realistic VR interactions on Meta Quest 3. The game includes:",
         features: [
             "Interactive lighting system (click and light)",
             "Geolocation bracelet with luminous points indicating interaction zones",
@@ -74,6 +74,6 @@ export const LANG_SPACEVRGAME = {
         tech_stack_title: "Technologies used",
         gallerie_name: "Space VR Game Image Gallery",
         github_link: "https://github.com/Lenoush/space-vr-game",
-        footer: `👩‍💻 Lena's GitHub`
+        footer: `Lena's GitHub`
     }
 } as const;

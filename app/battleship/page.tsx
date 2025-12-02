@@ -6,7 +6,7 @@ import { useState } from "react";
 import { LANG_BATTLESHIP } from "@/i18n/lang-battleship";
 import ReactMarkdown from "react-markdown";
 import { ImageCarousel } from "@/app/utils/image";
-import Header from "@/app/components/header";
+import Header from "@/app/components/header_utils/header";
 import Footer from "@/app/components/footer";
 import LearningSection from "@/app/components/learningSection";
 import ImagesGallery from "../components/imagesGallery";
