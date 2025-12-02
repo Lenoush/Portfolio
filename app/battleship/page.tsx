@@ -9,6 +9,7 @@ import { ImageCarousel } from "@/app/utils/image";
 import Header from "@/app/components/header";
 import Footer from "@/app/components/footer";
 import LearningSection from "@/app/components/learningSection";
+import ImagesGallery from "../components/imagesGallery";
 
 export default function BattleshipPage() {
     const [lang, setLang] = useState<"fr" | "en">("fr");
@@ -69,18 +70,10 @@ export default function BattleshipPage() {
                 />
 
                 {/*Images Gallery */}
-                <div className="  rounded-2xl shadow-xl p-8 mb-8 border border-gray-100">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                        <span className="text-4xl">🖼️ </span>
-                        {t.gallerie_name}
-                    </h2>
-                    <ImageCarousel
-                        images={[
-                            "/battleship/screen1.png",
-                            "/battleship/screen2.png",
-                        ]}
-                    />
-                </div>
+                <ImagesGallery
+                    title={t.gallerie_name}
+                    images={["/battleship/screen1.png", "/battleship/screen2.png"]}
+                />
 
                 {/* Footer */}
                 <Footer
