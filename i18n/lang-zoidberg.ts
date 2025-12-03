@@ -17,10 +17,11 @@ export const LANG_ZOIDBERG = {
         ],
 
         dataset_title_global: "Statistiques globales du dataset",
-        dataset_summary_train: "4099 scanners",
-        dataset_summary_test: "879 scanners",
-        dataset_summary_val: "878 scanners",
-        dataset_summary_total: "5856 scanners",
+        dataset_nb_image:"Nombre d'image",
+        dataset_summary_train: "4099",
+        dataset_summary_test: "879",
+        dataset_summary_val: "878",
+        dataset_summary_total: "5856",
 
         dataset_title_train: "Répartition du dataset d'entraînement",
         dataset: {
@@ -104,10 +105,11 @@ export const LANG_ZOIDBERG = {
         ],
 
         dataset_title_global: "Global Dataset Statistics",
-        dataset_summary_train: "4099 scanners",
-        dataset_summary_test: "879 scanners",
-        dataset_summary_val: "878 scanners",
-        dataset_summary_total: "5856 scanners",
+        dataset_nb_image: "Number of Images",
+        dataset_summary_train: "4099",
+        dataset_summary_test: "879",
+        dataset_summary_val: "878",
+        dataset_summary_total: "5856",
 
         dataset_title_train: "Training Dataset Distribution",
         dataset: {

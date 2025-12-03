@@ -1,4 +1,6 @@
 import { ImageCarousel } from "@/app/utils/image";
+import { IoImagesOutline } from "react-icons/io5";
+import { Subtitle } from "@/app/components/titles";
 
 type ImagesGalleryProps = {
     title: string;
@@ -7,12 +9,8 @@ type ImagesGalleryProps = {
 
 export default function ImagesGallery({ title, images }: ImagesGalleryProps) {
     return (
-        <div className="rounded-2xl shadow-xl p-8 mb-8 border border-gray-100">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                <span className="text-4xl">🖼️</span>
-                {title}
-            </h2>
-
+        <div className="card">
+            <Subtitle text={title} Icon={IoImagesOutline} />
             <ImageCarousel images={images} />
         </div>
     );

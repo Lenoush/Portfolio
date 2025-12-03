@@ -1,6 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { GrTestDesktop } from "react-icons/gr";
+
+import { Subtitle } from "@/app/components/titles";
 
 type ImageCategory = "healthy" | "bacterial" | "viral";
 
@@ -147,11 +150,9 @@ export default function TestInterface({ t, images }: TestInterfaceProps) {
     };
 
     return (
-        <div className="  rounded-2xl shadow-xl p-8 mb-8 border border-gray-100">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                <span className="text-4xl">🧪</span>
-                {t.test_SVC_avec_PCA_title}
-            </h2>
+        <div className="card">
+            {/* Test */}
+            <Subtitle text={t.test_SVC_avec_PCA_title} Icon={GrTestDesktop}/>
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
                 {allCategories.map((category) => (
@@ -169,7 +170,7 @@ export default function TestInterface({ t, images }: TestInterfaceProps) {
                                 setPrediction(null);
                                 setError(null);
                             }}
-                            className="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-blue-500 text-black"
+                            className="w-full border border-gray-300 rounded-lg p-2.5 text-black"
                         >
                             <option value="">--</option>
                             {images[category].map((img, i) => (
@@ -184,7 +185,7 @@ export default function TestInterface({ t, images }: TestInterfaceProps) {
                 <div className="flex items-end">
                     <button
                         onClick={resetSelection}
-                        className="w-full bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2.5 px-4 rounded-lg transition-colors"
+                        className="w-full bg-purple-800 hover:bg-purple-700 text-white font-semibold py-2.5 px-4 rounded-lg transition-colors"
                     >
                         {t.reset_button}
                     </button>
@@ -209,7 +210,7 @@ export default function TestInterface({ t, images }: TestInterfaceProps) {
                             reader.readAsDataURL(file);
                         }
                     }}
-                    className="block w-full text-sm text-gray-600 file:mr-4 file:py-2.5 file:px-5 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 cursor-pointer"
+                    className="block w-full text-sm text-gray-600 file:mr-4 file:py-2.5 file:px-5 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-purple-50 file:text-purple-700 hover:file:bg-purple-100 cursor-pointer"
                 />
             </div>
 
@@ -236,14 +237,14 @@ export default function TestInterface({ t, images }: TestInterfaceProps) {
                 <button
                     onClick={handlePredict}
                     disabled={isLoading}
-                    className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition-colors disabled:opacity-50 shadow-md"
+                    className="bg-purple-800 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-lg transition-colors disabled:opacity-50 shadow-md"
                 >
                     {isLoading ? "⏳ Prédiction en cours..." : "🔬 Faire une prédiction"}
                 </button>
             )}
 
             {prediction && (
-                <div className="mt-8 p-6 bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl border border-gray-200 shadow-inner">
+                <div className="mt-8 p-6 bg-purple-100 rounded-xl border border-purple-900 shadow-inner">
                     <h3 className="text-2xl font-bold mb-4 text-gray-900">{t.show_proba}</h3>
                     <div className="space-y-3">
                         {Object.entries(prediction.probabilities).map(([cls, prob]: [string, any]) => {
@@ -252,22 +253,17 @@ export default function TestInterface({ t, images }: TestInterfaceProps) {
                             const isPredicted = prediction.predicted === cls;
 
                             // Déterminer la couleur de fond
-                            let bgColor = " ";
+                            let bgColor = "bg-white";
                             let textColor = "text-gray-800";
                             let borderColor = "";
 
                             if (expectedClass) {
-                                if (isExpected && isPredicted) {
+                                if ((isExpected && isPredicted) || (isExpected && !isPredicted)) {
                                     // Bonne prédiction - VERT
                                     bgColor = "bg-green-100";
                                     textColor = "text-green-800";
                                     borderColor = "border-2 border-green-500";
-                                } else if (isExpected && !isPredicted) {
-                                    // C'était la bonne réponse mais pas prédite - VERT
-                                    bgColor = "bg-green-100";
-                                    textColor = "text-green-800";
-                                    borderColor = "border-2 border-green-500";
-                                } else if (!isExpected && isPredicted) {
+                                }else if (!isExpected && isPredicted) {
                                     // Mauvaise prédiction - ROUGE
                                     bgColor = "bg-red-100";
                                     textColor = "text-red-800";
@@ -285,31 +281,13 @@ export default function TestInterface({ t, images }: TestInterfaceProps) {
                                         {isExpected && " ✓"}
                                         {isPredicted && !isExpected && " ✗"}
                                     </span>
-                                    <span className={`font-bold text-lg ${isPredicted ? textColor : 'text-blue-600'}`}>
+                                    <span className={`font-bold text-lg ${isPredicted ? textColor : 'text-purple-800'}`}>
                                         {(prob * 100).toFixed(1)}%
                                     </span>
                                 </div>
                             );
                         })}
                     </div>
-
-                    {/* {getExpectedClass() && (
-                        <div className="mt-6">
-                            {prediction.predicted === getExpectedClass() ? (
-                                <div className="bg-green-50 border-l-4 border-green-500 text-green-800 px-5 py-4 rounded-lg">
-                                    <span className="text-2xl mr-2">✅</span>
-                                    <span className="font-semibold">{t.correct_result?.replace("{expected_class}", getExpectedClass()!)}</span>
-                                </div>
-                            ) : (
-                                <div className="bg-red-50 border-l-4 border-red-500 text-red-800 px-5 py-4 rounded-lg">
-                                    <span className="text-2xl mr-2">❌</span>
-                                    <span className="font-semibold">{t.wrong_result
-                                        ?.replace("{predicted_class}", prediction.predicted)
-                                        .replace("{expected_class}", getExpectedClass()!)}</span>
-                                </div>
-                            )}
-                        </div>
-                    )} */}
                 </div>
             )}
 
@@ -319,7 +297,7 @@ export default function TestInterface({ t, images }: TestInterfaceProps) {
                     className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
                     onClick={() => setLightboxImage(null)}
                 >
-                    <div className="max-w-4xl max-h-screen p-4">
+                    <div className="max-w-6xl max-h-screen p-4">
                         <img
                             src={lightboxImage}
                             alt="Enlarged view"

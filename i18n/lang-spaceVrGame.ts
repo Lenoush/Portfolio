@@ -4,8 +4,8 @@ export const LANG_SPACEVRGAME = {
         title: "Jeu VR Spatial",
         subtitle: "Jeu de survie et réparation en réalité virtuelle",
         intro: "Explorez un vaisseau spatial endommagé en VR et effectuez des tâches de survie et de réparation via des interactions immersives.",
-        demo_title: "Démonstration vidéo",
-        description_title: "Spécificités du projet",
+        demo_title: "Démo",
+        description_title: "Spécificités",
         description_text: "Le joueur se retrouve à bord d'un vaisseau spatial endommagé et doit accomplir diverses missions de réparation grâce à des interactions VR réalistes sur Meta Quest 3. Le jeu inclut :",
         features: [
             "Système de lumière interactif (click and light)",
@@ -18,7 +18,7 @@ export const LANG_SPACEVRGAME = {
             "Micro-ondes de réparation : réparez des objets électroniques avec du scotch",
             "Feedback audio immersif pour guider le joueur"
         ],
-        my_contributions_title: "Mes contributions personnelles",
+        my_contributions_title: "Mes contributions",
         my_contributions: [
             "Conception et implémentation du système d'ouverture de portes (énigmes, codes, cartes colorées)",
             "Développement du mécanisme de portes automatiques réagissant à la proximité du joueur",
@@ -33,8 +33,8 @@ export const LANG_SPACEVRGAME = {
 ★ Collaborer efficacement en équipe avec répartition claire des tâches
 ★ Intégrer logique spatiale, physique et design d'interaction
 ★ Optimiser les performances pour une expérience VR fluide`,
-        tech_stack_title: "Technologies utilisées",
-        gallerie_name: "Gallerie d'images du jeu VR spatial",
+        tech_stack_title: "Technologies",
+        gallerie_name: "Gallerie",
         github_link: "https://github.com/Lenoush/space-vr-game",
         footer: `Lena's GitHub`
     },
@@ -43,7 +43,7 @@ export const LANG_SPACEVRGAME = {
         subtitle: "Survival and repair game in virtual reality",
         intro: "Explore a damaged spaceship in VR and perform survival and repair tasks through immersive interactions.",
         demo_title: "Project demo",
-        description_title: "Project specifications",
+        description_title: "Specifications",
         description_text: "The player finds themselves aboard a damaged spaceship and must complete various repair missions using realistic VR interactions on Meta Quest 3. The game includes:",
         features: [
             "Interactive lighting system (click and light)",
@@ -56,7 +56,7 @@ export const LANG_SPACEVRGAME = {
             "Repair microwave: fix broken electronic objects using tape",
             "Immersive audio feedback to guide the player"
         ],
-        my_contributions_title: "My personal contributions",
+        my_contributions_title: "My contributions",
         my_contributions: [
             "Design and implementation of the door opening system (puzzles, codes, colored cards)",
             "Development of automatic door mechanism reacting to player proximity",
@@ -71,8 +71,8 @@ export const LANG_SPACEVRGAME = {
 ★ Collaborate effectively in a team with clear task distribution
 ★ Integrate spatial logic, physics, and interaction design
 ★ Optimize performance for a smooth VR experience`,
-        tech_stack_title: "Technologies used",
-        gallerie_name: "Space VR Game Image Gallery",
+        tech_stack_title: "Technologies",
+        gallerie_name: "Gallery",
         github_link: "https://github.com/Lenoush/space-vr-game",
         footer: `Lena's GitHub`
     }

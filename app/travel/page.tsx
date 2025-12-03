@@ -1,15 +1,18 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
-import Image from "next/image";
+import { MdOutlineTravelExplore } from "react-icons/md";
+import { GiTechnoHeart, GiModernCity, GiTargetArrows, GiPathDistance } from "react-icons/gi";
+
+
 import { TRAVEL } from "@/i18n/lang-travel";
-import ReactMarkdown from "react-markdown";
 import { MetricCard, StepCard } from "@/app/utils/card";
-import Header from "@/app/components/header_utils/header";
+import Header from "@/app/components/header_components/header";
 import Footer from "@/app/components/footer";
 import LearningSection from "@/app/components/learningSection";
-import VideoDemo from "@/app/components/videoDemo";
+import { Subtitle, Title } from "../components/titles";
+import Hero from "@/app/components/hero";
+import MediaGallery from "../components/mediaGallery";
 
 type Lang = "fr" | "en";
 
@@ -27,62 +30,47 @@ export default function TravelPage() {
         });
 
     return (
-        <main className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 py-8 px-4">
-            <div className="max-w-4xl mx-auto   rounded-xl shadow-lg p-8">
+        <main className="min-h-screen bg-slate-50 py-8 px-4">
+            <div className="max-w-6xl mx-auto rounded-xl p-8">
                 {/* Header */}
                 <Header lang={lang} setLang={setLang} />
 
                 {/* Hero Section */}
-                <div className="  rounded-2xl shadow-xl p-8 mb-8 border border-gray-100">
-                    <h1 className="text-4xl font-bold text-gray-900 mb-3">🌍 {t.title}</h1>
-                    <p className="text-xl text-gray-600 mb-6">{t.subtitle}</p>
-                    <div className="text-gray-800 leading-relaxed text-lg">
-                        <ReactMarkdown>{t.intro}</ReactMarkdown>
-                    </div>
-                </div>
+                <Hero t={t} icon={MdOutlineTravelExplore} href="https://github.com/Lenoush/Travel_Order_Desorder" color="green" />
 
-                {/* Image + Metrics Grid */}
+                {/* Metrics Grid */}
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-                    <div className="lg:col-span-2">
-                        <div className="  rounded-2xl shadow-lg overflow-hidden border border-gray-100">
-                            <Image
-                                src="/travel/resume_goal.png"
-                                alt="Project visualization"
-                                width={900}
-                                height={400}
-                                unoptimized
-                                className="w-full object-cover"
-                            />
-                            <Image
-                                src="/travel/dijkstrasAlgorithm.jpg"
-                                alt="Data visualization"
-                                width={900}
-                                height={400}
-                                unoptimized
-                                className="w-full object-cover"
-                            />
-                        </div>
-                    </div>
-
-                    <div className="space-y-4">
-                        <MetricCard title={t.metricCard1Title} value="3000+" icon="🏙️" />
-                        <MetricCard title={t.metricCard2Title} value="96%" icon="🎯" />
-                        <MetricCard title={t.metricCard3Title} value="99%" icon="🗺️" />
-                    </div>
+                    <MetricCard title={t.metricCard1Title} value="3000+" icon={GiModernCity} color="green" />
+                    <MetricCard title={t.metricCard2Title} value="96%" icon={GiTargetArrows} color="green" />
+                    <MetricCard title={t.metricCard3Title} value="99%" icon={GiPathDistance} color="green" />
                 </div>
 
-                {/* Demo Video */}
-                <VideoDemo
+                {/* Demo Media */}
+                <MediaGallery
                     title={t.demo_title}
-                    src="/travel/Travel_project_video.mp4"
+                    color="green"
+                    media={[
+                        {
+                            type: "video",
+                            src: "/travel/Travel_project_video.mp4",
+                            alt: "Travel Order Desorder Demo Video"
+                        },
+                        {
+                            type: "image",
+                            src: "/travel/resume_goal.png",
+                            alt: "Travel Order Desorder Screenshot 2"
+                        },
+                        {
+                            type: "image",
+                            src: "/travel/dijkstrasAlgorithm.jpg",
+                            alt: "Travel Order Desorder Screenshot 1"
+                        }
+                    ]}
                 />
 
                 {/* Technical Steps */}
-                <div className="  rounded-2xl shadow-xl p-8 mb-8 border border-gray-100">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-8">
-                        <span className="mr-2">⚙️ </span>
-                        {t.technical_title}
-                    </h2>
+                <div className="card">
+                    <Subtitle text={t.technical_title} Icon={GiTechnoHeart} />
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {steps.map((step, idx) => (
                             <StepCard
@@ -90,6 +78,7 @@ export default function TravelPage() {
                                 number={idx + 1}
                                 title={step.title}
                                 content={step.content}
+                                color="green"
                             />
                         ))}
                     </div>
@@ -99,6 +88,7 @@ export default function TravelPage() {
                 <LearningSection
                     learn_title={t.learn_title}
                     learn_points={t.learn_points}
+                    color="green"
                 />
 
                 {/* Footer */}

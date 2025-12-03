@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import LanguageSwitcher from "@/app/components/header_utils/languageSwitcher";
+import LanguageSwitcher from "@/app/components/header_components/languageSwitcher";
 
 type HeaderProps = {
     lang: "fr" | "en";
@@ -13,8 +13,8 @@ export default function Header({ lang, setLang }: HeaderProps) {
         <div className="flex items-center justify-between mb-8">
             <div>
                 <Link
-                    href="/"
-                    className="inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-800 font-semibold transition-colors"
+                    href="/#projects"
+                    className="inline-flex items-center gap-2 text-black hover:text-emerald-600 font-semibold transition-colors"
                 >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />

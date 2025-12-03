@@ -1,16 +1,35 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import {
+    IoGameControllerOutline,
+    IoColorWandOutline,
+    IoFlashlightOutline,
+    IoFlashOutline,
+    IoAppsOutline,
+    IoAccessibilityOutline,
+    IoCompassOutline,
+    IoPlanetOutline,
+    IoCardOutline,
+    IoHelpBuoyOutline} from "react-icons/io5";
+
+import {
+    GiSoundWaves,
+    GiAutoRepair,
+    GiSecretDoor,
+    GiRocket
+} from "react-icons/gi";
+
 import { LANG_SPACEVRGAME } from "@/i18n/lang-spaceVrGame";
-import { ImageCarousel } from "@/app/utils/image";
 import { FeatureCard, ContributionCard } from "@/app/utils/card";
-import Header from "@/app/components/header_utils/header";
+import Header from "@/app/components/header_components/header";
 import Footer from "@/app/components/footer";
-import LearningSection from "../components/learningSection";
-import ImagesGallery from "../components/imagesGallery";
-import VideoDemo from "../components/videoDemo";
-import TechStack from "../components/techStack";
+import LearningSection from "@/app/components/learningSection";
+import TechStack from "@/app/components/techStack";
+import { Subtitle } from "@/app/components/titles";
+import Hero from "@/app/components/hero";
+import MediaGallery from "@/app/components/mediaGallery";
+
 
 type Lang = "fr" | "en";
 
@@ -18,46 +37,70 @@ export default function SpaceVrGamePage() {
     const [lang, setLang] = useState<Lang>("fr");
     const t = LANG_SPACEVRGAME[lang];
 
-    const featureIcons = ["💡", "🧭", "⚡", "🌌", "🚪", "🎴", "🔄", "🔧", "🔊"];
-    const contributionIcons = ["🚪", "🤖", "🔧", "⚡"];
+    const featureIcons = [
+        IoFlashlightOutline,
+        IoCompassOutline,
+        IoFlashOutline,
+        IoPlanetOutline,
+        IoAppsOutline,
+        IoCardOutline,
+        IoAccessibilityOutline,
+        GiAutoRepair,
+        GiSoundWaves
+    ];
+
+    const contributionIcons = [
+        IoCardOutline,
+        GiSecretDoor,
+        GiAutoRepair,
+        IoHelpBuoyOutline
+    ];
+
 
     return (
-        <main className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 py-8 px-4">
-            <div className="max-w-4xl mx-auto   rounded-xl shadow-lg p-8">
+        <main className="min-h-screen bg-slate-50 py-8 px-4">
+            <div className="max-w-6xl mx-auto rounded-xl p-8">
                 {/* Header */}
                 <Header lang={lang} setLang={setLang} />
 
                 {/* Hero Section */}
-                <div className="  rounded-2xl shadow-xl p-8 mb-8 border border-gray-100">
-                    <h1 className="text-4xl font-bold text-gray-900 mb-3">
-                        <span className="text-4xl">🚀 </span>
-                        {t.title}
-                    </h1>
-                    <p className="text-xl text-gray-700 mb-4">{t.subtitle}</p>
-                    <p className="text-lg text-gray-800 leading-relaxed">{t.intro}</p>
-                </div>
+                <Hero t={t} icon={GiRocket} href="https://github.com/kilian-le-calvez/VIR-2025" color="orange" />
 
-                {/* Demo Video */}
-                <VideoDemo
+                {/* Demo Media */}
+                <MediaGallery
                     title={t.demo_title}
-                    src="https://www.youtube.com/embed/JeNqxFEgccM"
+                    color="orange"
+                    media={[
+                        {
+                            type: "video",
+                            src: "https://www.youtube.com/embed/JeNqxFEgccM",
+                            alt: "Space VR Game Demo Video"
+                        },
+                        {
+                            type: "image",
+                            src: "/spaceVrGame/SpaceVrScreen1.png",
+                            alt: "Space VR Game Screenshot 1"
+                        },
+                        {
+                            type: "image",
+                            src: "/spaceVrGame/SpaceVrScreen2.png",
+                            alt: "Space VR Game Screenshot 2"
+                        }
+                    ]}
                 />
 
                 {/* Description & Features */}
-                <div className="  rounded-2xl shadow-xl p-8 mb-8 border border-gray-100">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                        <span className="text-4xl">🎮 </span>
-                        {t.description_title}
-                    </h2>
-                    <p className="text-gray-800 text-lg leading-relaxed mb-6">
+                <div className="card bg-orange-50">
+                    <Subtitle text={t.description_title} Icon={IoGameControllerOutline} />
+                    <p className="text-gray-800 leading-relaxed mb-6">
                         {t.description_text}
                     </p>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                         {t.features.map((feature, idx) => (
                             <FeatureCard
                                 key={idx}
-                                icon={featureIcons[idx] || "✨"}
+                                icon={featureIcons[idx]}
                                 text={feature}
                             />
                         ))}
@@ -65,42 +108,35 @@ export default function SpaceVrGamePage() {
                 </div>
 
                 {/* Mes Contributions */}
-                <div className="bg-gradient-to-br from-purple-100 to-indigo-100 rounded-2xl shadow-xl p-8 mb-8 border border-purple-200">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                        <span className="text-4xl">🛠️ </span>
-                        {t.my_contributions_title}
-                    </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="bg-white rounded-2xl shadow-sm p-8 mb-8">
+                    <Subtitle text={t.my_contributions_title} Icon={IoColorWandOutline} />
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                         {t.my_contributions.map((contribution, idx) => (
                             <ContributionCard
                                 key={idx}
-                                icon={contributionIcons[idx] || "⭐"}
+                                icon={contributionIcons[idx]}
                                 text={contribution}
+                                color="orange"
                             />
                         ))}
                     </div>
                 </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                    {/* Learning Section */}
+                    <LearningSection
+                        learn_title={t.learn_title}
+                        learn_points={t.learn_points}
+                        color="orange"
+                    />
 
-                {/* Tech Stack */}
-                <TechStack
-                    title={t.tech_stack_title}
-                    technologies={["Unity", "C#", "Meta Quest 3", "Blender", "VR Toolkit"]}
-                />
-
-                {/* Learning Section */}
-                <LearningSection
-                    learn_title={t.learn_title}
-                    learn_points={t.learn_points}
-                />
-
-                {/*Images Gallery */}
-                <ImagesGallery
-                    title={t.gallerie_name}
-                    images={[
-                        "/spaceVrGame/SpaceVrScreen1.png",
-                        "/spaceVrGame/SpaceVrScreen2.png",
-                    ]}
-                />
+                    {/* Tech Stack */}
+                    <TechStack
+                        title={t.tech_stack_title}
+                        technologies={["Unity", "C#", "Meta Quest 3", "Blender", "VR Toolkit"]}
+                        color="orange"
+                    />
+                </div>
 
                 {/* Footer */}
                 <Footer

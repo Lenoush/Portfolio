@@ -1,3 +1,6 @@
+import { IoVideocamOutline } from "react-icons/io5";
+import { Subtitle } from "@/app/components/titles";
+
 type VideoDemoProps = {
     title: string;
     src: string; 
@@ -7,11 +10,8 @@ export default function VideoDemo({ title, src }: VideoDemoProps) {
     const isUrlLink = src.startsWith("http");
 
     return (
-        <div className="rounded-2xl shadow-xl p-8 mb-8 border border-gray-100">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                <span className="text-4xl">🎥</span>
-                {title}
-            </h2>
+        <div className="card">
+            <Subtitle text={title} Icon={IoVideocamOutline} />
 
             <div className="aspect-video w-full rounded-xl overflow-hidden shadow-lg border border-gray-200">
                 {isUrlLink ? (

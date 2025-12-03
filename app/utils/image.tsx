@@ -59,7 +59,7 @@ export function ImageCarousel({ images }: { images: string[] }) {
                         key={index}
                         onClick={() => goToSlide(index)}
                         className={`transition-all rounded-full ${index === currentIndex
-                            ? "w-12 h-3 bg-indigo-900"
+                            ? "w-12 h-3 bg-emerald-600 shadow-lg"
                             : "w-3 h-3 bg-gray-300 hover:bg-gray-400"
                             }`}
                         aria-label={`Aller à l'image ${index + 1}`}
