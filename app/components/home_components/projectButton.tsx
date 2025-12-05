@@ -1,4 +1,4 @@
-import COLOR_MAP from "@/app/colorMap";
+import COLOR_MAP from "@/config/colorMap";
 import { IconType } from "react-icons/lib";
 import { Subtitle } from "@/app/components/titles";
 
@@ -20,20 +20,20 @@ export default function ProjectButton({
   targetBlank = false,
 }: ProjectButtonProps) {
 
-  const colorKey = color in COLOR_MAP ? color : "gray";
-  const { bg, border } = COLOR_MAP[colorKey];
+  const colorKey = COLOR_MAP[color];
+  const mainColor = COLOR_MAP.main;
 
   const handleClickOpenLink = () => {
     window.open(link, targetBlank ? "_blank" : "_self");
   }
 
   return (
-    <div className={`rounded-lg p-6 hover:shadow-md cursor-pointer ${bg} border ${border}`}
+    <div className={`rounded-lg p-6 hover:shadow-md cursor-pointer ${colorKey.bg} border ${colorKey.border}`}
       onClick={handleClickOpenLink}
     >
       <Subtitle text={title} Icon={Icon} />
 
-      <div className="text-gray-600 mb-1">
+      <div className={`${mainColor.text_color} mb-1`}>
         {description}
       </div>
 

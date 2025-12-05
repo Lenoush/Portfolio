@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { IoImagesOutline, IoVideocamOutline } from "react-icons/io5";
 import { Subtitle } from "@/app/components/titles";
+import COLOR_MAP from "@/config/colorMap";
 
 type MediaItem = {
     type: "image" | "video";
@@ -16,6 +17,7 @@ type MediaGalleryProps = {
 };
 
 export default function MediaGallery({ title, color, media }: MediaGalleryProps) {
+    const colorKey = COLOR_MAP[color];
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const goToSlide = (index: number) => {
@@ -68,29 +70,27 @@ export default function MediaGallery({ title, color, media }: MediaGalleryProps)
                         />
                     )}
 
-                    {/* Boutons navigation - Affichés seulement s'il y a plusieurs médias */}
-                    {media.length > 1 && (
-                        <>
-                            <button
-                                onClick={goToPrevious}
-                                className="absolute left-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-75 text-white rounded-full p-3 transition-all shadow-lg"
-                                aria-label="Média précédent"
-                            >
-                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                                </svg>
-                            </button>
-                            <button
-                                onClick={goToNext}
-                                className="absolute right-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-75 text-white rounded-full p-3 transition-all shadow-lg"
-                                aria-label="Média suivant"
-                            >
-                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                </svg>
-                            </button>
-                        </>
-                    )}
+                    {/* Boutons navigation*/}
+                    <>
+                        <button
+                            onClick={goToPrevious}
+                            className="absolute left-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-75 text-white rounded-full p-3 transition-all shadow-lg"
+                            aria-label="Média précédent"
+                        >
+                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+                        <button
+                            onClick={goToNext}
+                            className="absolute right-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-75 text-white rounded-full p-3 transition-all shadow-lg"
+                            aria-label="Média suivant"
+                        >
+                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    </>
                 </div>
 
                 {/* Points de navigation */}
@@ -110,7 +110,7 @@ export default function MediaGallery({ title, color, media }: MediaGalleryProps)
                                     <Icon
                                         className={
                                             isActive
-                                                ? `text-3xl text-${color}-600 drop-shadow-md`
+                                                ? `text-3xl ${colorKey.text_color} drop-shadow-md`
                                                 : "text-xl text-gray-400 hover:text-gray-600"
                                         }
                                     />

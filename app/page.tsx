@@ -1,30 +1,31 @@
 // app/page.tsx
 "use client";
-
 import { useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { RiBodyScanFill } from "react-icons/ri";
 import { MdOutlineTravelExplore, MdOutlinePhoneCallback } from "react-icons/md";
-import { IoBoatOutline, IoLocationOutline, IoMailUnreadOutline, IoLogoGithub } from "react-icons/io5";
+import { IoBoatOutline, IoMailUnreadOutline, IoLogoGithub } from "react-icons/io5";
 import { GiSpartanHelmet, GiRocket } from "react-icons/gi";
 import { BsLinkedin } from "react-icons/bs";
 import { TbFileCv } from "react-icons/tb";
-
 import { LANG, Language } from "@/i18n/lang";
-
 import Image from "next/image";
 import LanguageSwitcher from "@/app/components/header_components/languageSwitcher";
-import Footer from "./components/footer";
-import PersoButton from "./components/home_components/persoButton";
-import ProjectButton from "./components/home_components/projectButton";
-import { Subtitle } from "./components/titles";
+import Footer from "@/app/components/footer";
+import PersoButton from "@/app/components/home_components/persoButton";
+import ProjectButton from "@/app/components/home_components/projectButton";
+import COLOR_MAP from "@/config/colorMap";
+import { PAGE_COLORS } from "@/config/theme";
 
 export default function Home() {
   const [lang, setLang] = useState<Language>("fr");
   const t = LANG[lang];
 
+  // Définir la couleur principale de la page
+  const mainColor = COLOR_MAP.main;
+
   return (
-    <div className="min-h-screen bg-slate-50 py-8 px-4">
+    <div className={`min-h-screen ${mainColor.bg} py-8 px-4`}>
       <div className="max-w-6xl mx-auto rounded-xl p-8">
         {/* Sélecteur de langue */}
         <div className="flex justify-end mb-6">
@@ -40,29 +41,27 @@ export default function Home() {
             height={120}
             className="rounded-full"
           />
-
           <div>
-            <h1 className="text-4xl font-bold text-gray-900 mb-2">
+            <h1 className={`text-4xl font-bold ${mainColor.title_color} mb-2`}>
               {t.title}
             </h1>
-            <h2 className="text-xl text-gray-600">
+            <h2 className={`text-xl ${mainColor.subtitle_color}`}>
               {t.subtitle}
             </h2>
           </div>
         </div>
 
-        <hr className="border-gray-300 mb-8" />
-
+        <hr className={`${mainColor.border} mb-8`} />
 
         {/* Présentation */}
-        <div className="text-gray-700 mb-8 prose max-w-none">
+        <div className={` ${mainColor.text_color} mb-8 prose max-w-none`}>
           <ReactMarkdown>{t.intro}</ReactMarkdown>
         </div>
-        <hr className="border-gray-300 mb-8" />
+
+        <hr className={`${mainColor.border} mb-8`} />
 
         {/* Informations de contact - 2 colonnes */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-
           {/* Colonne gauche - Informations textuelles */}
           <div className="flex flex-col gap-6 items-center justify-center">
             <div className="items-center justify-center space-y-6">
@@ -72,7 +71,6 @@ export default function Home() {
                 href="mailto:lenaoudjman@yahoo.fr"
                 text="lenaoudjman@yahoo.fr"
               />
-
               {/* PHONE */}
               <PersoButton
                 icon={MdOutlinePhoneCallback}
@@ -83,51 +81,49 @@ export default function Home() {
           </div>
 
           {/* Colonne droite - Icônes sociales */}
-          <div className="flex items-center gap-35">
+          <div className="flex items-center gap-8 justify-center">
             {/* LINKEDIN */}
             <a
               href="https://www.linkedin.com/in/lena-oudjman-0a36b6226/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-700 hover:text-emerald-600 cursor-pointer"
+              className={`text-blue-600 ${mainColor.hover} cursor-pointer transition-colors`}
             >
               <BsLinkedin className="text-7xl" />
             </a>
-
             {/* GITHUB */}
             <a
               href="https://github.com/Lenoush"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-900 hover:text-emerald-600 cursor-pointer"
+              className={`text-gray-900 ${mainColor.hover} cursor-pointer transition-colors`}
             >
               <IoLogoGithub className="text-7xl" />
             </a>
-
             {/* CV */}
             <a
               href="/CV_Lena_Oudjman_FR.pdf"
               target="_blank"
               rel="noopener noreferrer"
               download={true}
-              className="text-red-800 hover:text-emerald-600 cursor-pointer"
+              className={`text-gray-500 ${mainColor.hover} cursor-pointer transition-colors`}
             >
               <TbFileCv className="text-8xl" />
             </a>
           </div>
         </div>
 
-        <hr className="border-gray-300 mb-8" id="projects" />
+        <hr className={`${mainColor.border} mb-8`} />
 
         {/* Projets */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6" id="projects">
           {/* Projet 1 - Zoidberg */}
           <ProjectButton
             title={t.proj_zoidberg}
             icon={RiBodyScanFill}
             description={t.proj_zoidberg_description}
             link="/zoidberg"
-            color="purple"
+            color={PAGE_COLORS.zoidberg}
           />
 
           {/* Projet 2 - Travel */}
@@ -136,7 +132,7 @@ export default function Home() {
             icon={MdOutlineTravelExplore}
             description={t.proj_travel_description}
             link="/travel"
-            color="green"
+            color={PAGE_COLORS.travel}
           />
 
           {/* Projet 3 - Battleship */}
@@ -145,7 +141,7 @@ export default function Home() {
             icon={IoBoatOutline}
             description={t.proj_battleship_description}
             link="/battleship"
-            color="indigo"
+            color={PAGE_COLORS.battleship}
           />
 
           {/* Projet 4 - Sparta */}
@@ -154,7 +150,7 @@ export default function Home() {
             icon={GiSpartanHelmet}
             description={t.proj_sparta_description}
             link="https://spartainvest.fr/landing"
-            color="pink"
+            color={PAGE_COLORS.sparta}
             targetBlank
           />
 
@@ -164,15 +160,13 @@ export default function Home() {
             icon={GiRocket}
             description={t.proj_vr_space_game_description}
             link="/spaceVrGame"
-            color="orange" />
-
+            color={PAGE_COLORS.spaceVrGame}
+          />
         </div>
       </div>
+
       {/* Footer */}
-      <Footer
-        href="https://www.linkedin.com/in/lena-oudjman-0a36b6226/"
-        text={t.footer}
-      />
+      <Footer />
     </div>
   );
 }

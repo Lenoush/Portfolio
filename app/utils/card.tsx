@@ -1,21 +1,21 @@
 import { IconType } from 'react-icons';
-import COLOR_MAP from "@/app/colorMap";
+import COLOR_MAP from "@/config/colorMap";
 
 
-export function MetricCard({ title, value, icon: Icon , color}: { title: string; value: string; icon: IconType, color: string }) {
-    const colorKey = color in COLOR_MAP ? color : "emerald";
-    const { bg, border, text_color} = COLOR_MAP[colorKey];
+export function MetricCard({ title, value, icon: Icon, color }: { title: string; value: string; icon: IconType, color: string }) {
+    const colorKey = COLOR_MAP[color];
+    const mainKey = COLOR_MAP["main"];
     return (
-        <div className={`${bg} border ${border} rounded-xl p-6 shadow-sm`}>
+        <div className={`${colorKey.bg} border ${colorKey.border} rounded-xl p-6 shadow-sm`}>
             <div className="flex items-center gap-2">
-                {Icon && <span className={`mb-2 text-2xl ${text_color}`}>
+                {Icon && <span className={`mb-2 text-2xl ${colorKey.text_color}`}>
                     <Icon />
-                    </span>}
-                <p className="text-black text-md">
+                </span>}
+                <p className={` ${mainKey.title_color} text-md`}>
                     {title}
                 </p>
             </div>
-            <div className={`text-2xl font-bold ${text_color} mt-2 text-center`}>
+            <div className={`text-2xl font-bold ${colorKey.text_color} mt-2 text-center`}>
                 {value}
             </div>
         </div>
@@ -23,11 +23,11 @@ export function MetricCard({ title, value, icon: Icon , color}: { title: string;
 }
 
 export function StepCard({ number, title, content, color }: { number: number; title: string; content: string; color: string }) {
-    const colorKey = color in COLOR_MAP ? color : "emerald";
-    const { bg, border, text_color, bg_fonce} = COLOR_MAP[colorKey];
+    const colorKey = COLOR_MAP[color];
+    const mainKey = COLOR_MAP["main"];
     return (
-        <div className={`relative border ${border} rounded-xl p-6 shadow-sm`}>
-            <div className={`absolute -top-3 -left-3 w-10 h-10 ${bg_fonce} rounded-full flex items-center justify-center text-white font-bold border ${border}`}>
+        <div className={`relative border ${colorKey.border} rounded-xl p-6 shadow-sm`}>
+            <div className={`absolute -top-3 -left-3 w-10 h-10 ${colorKey.bg_fonce} rounded-full flex items-center justify-center ${mainKey.text_color_white} font-bold border ${colorKey.border}`}>
                 {number}
             </div>
             <h4 className="text-lg font-semibold text-gray-900 mb-3 mt-2">{title}</h4>
@@ -37,17 +37,18 @@ export function StepCard({ number, title, content, color }: { number: number; ti
 }
 
 export function FeatureCard({ icon: Icon, text }: { icon: IconType; text: string }) {
+    const mainKey = COLOR_MAP["main"];
     return (
-        <div className="flex items-start gap-3 p-4 rounded-lg border border-gray-300 shadow-sm bg-white text-black">
+        <div className={`flex items-start gap-3 p-4 rounded-lg shadow-sm ${mainKey.bg} ${mainKey.text_color}`}>
             <span className="text-2xl">
                 <Icon />
             </span>
-            <p className="text-gray-800 leading-relaxed">{text}</p>
+            <p className={`leading-relaxed ${mainKey.text_color}`}>{text}</p>
         </div>
     );
 }
 
-export function ContributionCard({ icon, text, color }: { icon: IconType | IconType[]; text: string ; color: string }) {
+export function ContributionCard({ icon, text, color }: { icon: IconType | IconType[]; text: string; color: string }) {
     const renderIcons = () => {
         if (Array.isArray(icon)) {
             return (
@@ -62,17 +63,17 @@ export function ContributionCard({ icon, text, color }: { icon: IconType | IconT
         return <Icon className="text-xl" />;
     };
 
-    const colorKey = color in COLOR_MAP ? color : "emerald";
-    const { bg, border, text_color} = COLOR_MAP[colorKey];
+    const mainKey = COLOR_MAP["main"];
+    const colorKey = COLOR_MAP[color];
 
     return (
-        <div className={`relative ${bg} p-6 pt-8 rounded-lg shadow-sm border ${border}`}>
+        <div className={`relative ${colorKey.bg} p-6 pt-8 rounded-lg shadow-sm border ${colorKey.border}`}>
             {/* Rond avec icône sur le bord */}
-            <div className={`absolute -top-4 left-1/2 -translate-x-1/2 w-12 h-12 bg-white rounded-full flex items-center justify-center ${text_color} font-bold border-2 ${border} shadow-sm`}>
+            <div className={`absolute -top-4 left-1/2 -translate-x-1/2 w-12 h-12 ${mainKey.bg} rounded-full flex items-center justify-center ${colorKey.text_color} font-bold border-2 ${colorKey.border} shadow-sm`}>
                 {renderIcons()}
             </div>
-            
-            <p className="text-gray-800 leading-relaxed text-center">{text}</p>
+
+            <p className={`leading-relaxed text-center ${mainKey.text_color}`}>{text}</p>
         </div>
     );
 }

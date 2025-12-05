@@ -23,9 +23,7 @@ export const LANG_BATTLESHIP = {
         ★ Gestion de l'état du jeu et des entrées utilisateur.
         ★ Tests et débogage d'applications console.
         ★ Collaboration sur un projet de codage en utilisant Git et GitHub.
-        ★ Amélioration des compétences en résolution de problèmes et en réflexion algorithmique.`,
-        footer: `Github de Léna`
-    },
+        ★ Amélioration des compétences en résolution de problèmes et en réflexion algorithmique.`,    },
     en: {
         return: "← Back to portfolio",
         title: "Battleship – Python Terminal Game",
@@ -51,6 +49,5 @@ export const LANG_BATTLESHIP = {
         ★ Testing and debugging console applications.
         ★ Collaborating on a coding project using Git and GitHub.
         ★ Enhancing problem-solving and algorithmic thinking skills.`,
-        footer: `Lena's GitHub`
     }
 };

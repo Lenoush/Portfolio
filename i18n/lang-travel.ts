@@ -55,7 +55,6 @@ Le texte peut provenir de plusieurs sources :
 ★ Implémenter des algorithmes de graphe.
 ★ Encadrer et coordonner une petite équipe (management de 4 personnes).
 ★ Organiser le travail et gérer les priorités entre data, dev et recherche.`,
-        footer: `Github de Léna`
     },
 
     en: {
@@ -113,6 +112,5 @@ Text can come from multiple sources:
 ★ Implement graph algorithms.
 ★ Lead and coordinate a small team (management of 4 people).
 ★ Organize workflows and manage priorities across data, development, and research tasks.`,
-        footer: `Lena's GitHub`
     }
 } as const;

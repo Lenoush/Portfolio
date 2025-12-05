@@ -1,3 +1,5 @@
+import COLOR_MAP from "@/config/colorMap";
+
 type Step = {
   text: string;
   images: readonly string[];
@@ -6,23 +8,27 @@ type Step = {
 type PreprocessingProps = {
   preprocessing_steps: readonly Step[];
   setLightboxImage: (img: string) => void;
+  color: string;
 };
 
-export default function Preprocessing({ preprocessing_steps, setLightboxImage }: PreprocessingProps) {
+export default function Preprocessing({ preprocessing_steps, setLightboxImage, color }: PreprocessingProps) {
+  const colorKey = COLOR_MAP[color];
+  const mainColor = COLOR_MAP.main;
+
   return (
     <div>
       {preprocessing_steps.map((step, i) => (
         <div
           key={i}
-          className="mb-8 bg-purple-50 p-6 rounded-xl border border-purple-200"
+          className={`mb-8 ${colorKey.bg} p-6 rounded-xl border ${colorKey.border}`}
         >
-          <p className="mb-4 text-gray-800 font-medium text-lg">{step.text}</p>
+          <p className={`mb-4 ${mainColor.text_color} font-medium text-lg`}>{step.text}</p>
           <div
             className={`grid gap-4 ${step.images.length === 1
-                ? "grid-cols-1"
-                : step.images.length === 2
-                  ? "grid-cols-2"
-                  : "grid-cols-3"
+              ? "grid-cols-1"
+              : step.images.length === 2
+                ? "grid-cols-2"
+                : "grid-cols-3"
               }`}
           >
             {step.images.map((img, j) => (

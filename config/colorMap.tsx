@@ -1,0 +1,76 @@
+const COLOR_MAP: Record<string, 
+{ color: string,
+  bg: string, 
+  border: string,
+
+  hover?: string, 
+  text_color?: string, 
+  hover_bg?: string,
+  title_color?: string,
+  subtitle_color?: string,
+  text_color_white?: string,
+  bg_page?: string,
+  text_color_emerald?: string,
+  bg_clair?: string,
+  hover_bg_100?: string,
+  hover_bg_50?: string,
+  hover_text?: string,
+  bg_fonce?: string, 
+}> = {
+  main: 
+    { color: "emerald",
+      title_color: "text-black",
+      subtitle_color: "text-gray-800",
+      text_color: "text-gray-700",
+      text_color_white: "text-white",
+      text_color_emerald: "text-emerald-600",
+      bg: "bg-white",
+      bg_page: "bg-slate-50",
+      hover_text: "hover:text-emerald-600",  
+      border: "border-emerald-600", 
+    },
+  green: 
+    { color: "green",
+      bg: "bg-green-50", 
+      hover_bg: "hover:bg-green-700", 
+      border: "border-green-200", 
+      text_color: "text-green-600", 
+      hover_text: "hover:text-green-800", 
+      bg_fonce: "bg-green-900" 
+    },
+  purple: 
+    { color: "purple",
+      bg: "bg-purple-50", 
+      bg_clair: "bg-purple-100",
+      hover_bg: "hover:bg-purple-700", 
+      hover_bg_100: "hover:bg-purple-100", 
+      hover_bg_50: "hover:bg-purple-50", 
+      border: "border-purple-200", 
+      text_color: "text-purple-600" , 
+      hover_text: "hover:text-purple-800", 
+      bg_fonce: "bg-purple-900" 
+    },
+  indigo: 
+    { color: "indigo",
+      border: "border-indigo-200", 
+      hover_text: "hover:text-indigo-700",
+      text_color: "text-indigo-600",
+      bg_fonce: "bg-indigo-900",
+      bg: "bg-indigo-50" ,
+    },
+  orange: 
+    { color: "orange",
+      border: "border-orange-200", 
+      hover_text: "hover:text-orange-600",
+      text_color: "text-orange-600", 
+      bg: "bg-orange-50", 
+      bg_fonce: "bg-orange-900" , 
+    },
+  pink: 
+    { color: "pink",
+      bg: "bg-pink-50",
+      border: "border-pink-200",
+    }
+} as const;
+
+export default COLOR_MAP;

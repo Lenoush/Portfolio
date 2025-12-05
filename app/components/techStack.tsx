@@ -1,6 +1,6 @@
 import { IoBuildOutline } from "react-icons/io5";
-import { Subtitle } from "./titles";
-import COLOR_MAP from "@/app/colorMap";
+import { Subtitle } from "@/app/components/titles";
+import COLOR_MAP from "@/config/colorMap";
 
 type TechStackProps = {
     title: string;
@@ -9,8 +9,8 @@ type TechStackProps = {
 };
 
 export default function TechStack({ title, technologies, color }: TechStackProps) {
-    const colorKey = color in COLOR_MAP ? color : "emerald";
-    const { bg, border} = COLOR_MAP[colorKey];
+    const colorKey = COLOR_MAP[color];
+    const mainColor = COLOR_MAP.main;
 
     return (
         <div className="card">
@@ -20,7 +20,7 @@ export default function TechStack({ title, technologies, color }: TechStackProps
                 {technologies.map((tech) => (
                     <span
                         key={tech}
-                        className={` text-black px-5 py-2 rounded-full font-semibold border ${border} ${bg}`}
+                        className={`${mainColor.text_color} px-5 py-2 rounded-full font-semibold border ${colorKey.border} ${colorKey.bg}`}
                     >
                         {tech}
                     </span>

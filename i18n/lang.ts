@@ -3,10 +3,6 @@ export const LANG = {
     fr: {
         title: "Portfolio - Léna Oudjman",
         subtitle: "Data Scientist | Machine Learning Ingénieure",
-        cv: "📄 Télécharger mon CV",
-        linkedin: "LinkedIn",
-        github: "GitHub",
-        footer: "2025 - Portfolio personnel",
         intro: "Bienvenue sur mon portfolio ! Je suis Léna Oudjman, une passionnée de data science et de machine learning. Découvrez mes projets et n'hésitez pas à me contacter.",
 
         proj_zoidberg: "Classification de scanners",
@@ -28,10 +24,6 @@ export const LANG = {
     en: {
         title: "Portfolio - Léna Oudjman",
         subtitle: "Data Scientist | Machine Learning Engineer",
-        cv: "📄 Download my CV",
-        linkedin: "LinkedIn",
-        github: "GitHub",
-        footer: "2025 - Personal portfolio",
         intro: "Welcome to my portfolio! I'm Léna Oudjman, a passionate data scientist and machine learning enthusiast. Explore my projects and feel free to reach out to me.",
 
         proj_zoidberg: "Lung Scan Classification",

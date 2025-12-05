@@ -35,8 +35,6 @@ export const LANG_SPACEVRGAME = {
 ★ Optimiser les performances pour une expérience VR fluide`,
         tech_stack_title: "Technologies",
         gallerie_name: "Gallerie",
-        github_link: "https://github.com/Lenoush/space-vr-game",
-        footer: `Lena's GitHub`
     },
     en: {
         title: "Space VR Game",
@@ -73,7 +71,5 @@ export const LANG_SPACEVRGAME = {
 ★ Optimize performance for a smooth VR experience`,
         tech_stack_title: "Technologies",
         gallerie_name: "Gallery",
-        github_link: "https://github.com/Lenoush/space-vr-game",
-        footer: `Lena's GitHub`
     }
 } as const;

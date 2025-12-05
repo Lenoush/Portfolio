@@ -1,33 +1,41 @@
 "use client";
+
 import { useState } from "react";
 import { IoBoatOutline, IoExtensionPuzzleOutline } from "react-icons/io5";
 
 import { LANG_BATTLESHIP } from "@/i18n/lang-battleship";
+
 import Header from "@/app/components/header_components/header";
 import Footer from "@/app/components/footer";
 import LearningSection from "@/app/components/learningSection";
 import { Subtitle } from "@/app/components/titles";
 import Hero from "@/app/components/hero";
 import MediaGallery from "@/app/components/mediaGallery";
+import COLOR_MAP from "@/config/colorMap";
+import { PAGE_COLORS } from "@/config/theme";
 
 
 export default function BattleshipPage() {
     const [lang, setLang] = useState<"fr" | "en">("fr");
     const t = LANG_BATTLESHIP[lang];
 
+    // Définir la couleur principale de la page
+    const battleshipColor = COLOR_MAP[PAGE_COLORS.battleship];
+    const mainColor = COLOR_MAP.main; 
+
     return (
-        <main className="min-h-screen bg-slate-50 py-8 px-4">
+        <main className={`min-h-screen ${mainColor.bg_page} py-8 px-4`}>
             <div className="max-w-6xl mx-auto rounded-xl p-8">
                 {/* Header */}
                 <Header lang={lang} setLang={setLang} />
 
                 {/* Hero Section */}
-                <Hero t={t} icon={IoBoatOutline} href="https://github.com/Lenoush/Battleship" color="indigo" />
+                <Hero t={t} icon={IoBoatOutline} href="https://github.com/Lenoush/Battleship" color={battleshipColor.color} />
 
                 {/* Demo Media */}
                 <MediaGallery
                     title={t.demo_title}
-                    color="indigo"
+                    color={battleshipColor.color}
                     media={[
                         {
                             type: "video",
@@ -46,10 +54,10 @@ export default function BattleshipPage() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                     {/* DESCRIPTION */}
-                    <div className="card border border-indigo-600">
+                    <div className={`card border ${battleshipColor.border}`}>
                         <Subtitle text={t.description_title} Icon={IoExtensionPuzzleOutline} />
-                        <p className="text-gray-800 leading-relaxed">{t.description_text}</p>
-                        <ul className="list-disc ml-6 mt-3 space-y-1 text-gray-800">
+                        <p className={`${mainColor.text_color} leading-relaxed`}>{t.description_text}</p>
+                        <ul className={`list-disc ml-6 mt-3 space-y-1 ${mainColor.text_color}`}>
                             {t.features.map((f, i) => (
                                 <li key={i}>{f}</li>
                             ))}
@@ -60,16 +68,12 @@ export default function BattleshipPage() {
                     <LearningSection
                         learn_title={t.learn_title}
                         learn_points={t.learn_points}
-                        color="indigo"
+                        color={battleshipColor.color}
                     />
                 </div>
 
                 {/* Footer */}
-                <Footer
-                    href="https://github.com/Lenoush/Battleship"
-                    text={t.footer}
-                />
-
+                <Footer />
             </div>
         </main>
     );

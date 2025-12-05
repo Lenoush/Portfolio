@@ -11,7 +11,8 @@ import {
     IoCompassOutline,
     IoPlanetOutline,
     IoCardOutline,
-    IoHelpBuoyOutline} from "react-icons/io5";
+    IoHelpBuoyOutline
+} from "react-icons/io5";
 
 import {
     GiSoundWaves,
@@ -29,13 +30,17 @@ import TechStack from "@/app/components/techStack";
 import { Subtitle } from "@/app/components/titles";
 import Hero from "@/app/components/hero";
 import MediaGallery from "@/app/components/mediaGallery";
-
+import COLOR_MAP from "@/config/colorMap";
+import { PAGE_COLORS } from "@/config/theme";
 
 type Lang = "fr" | "en";
 
 export default function SpaceVrGamePage() {
     const [lang, setLang] = useState<Lang>("fr");
     const t = LANG_SPACEVRGAME[lang];
+
+    const mainColor = COLOR_MAP.main;
+    const spaceColor = COLOR_MAP[PAGE_COLORS.spaceVrGame];
 
     const featureIcons = [
         IoFlashlightOutline,
@@ -58,18 +63,18 @@ export default function SpaceVrGamePage() {
 
 
     return (
-        <main className="min-h-screen bg-slate-50 py-8 px-4">
+        <main className={`min-h-screen ${mainColor.bg_page} py-8 px-4`}>
             <div className="max-w-6xl mx-auto rounded-xl p-8">
                 {/* Header */}
                 <Header lang={lang} setLang={setLang} />
 
                 {/* Hero Section */}
-                <Hero t={t} icon={GiRocket} href="https://github.com/kilian-le-calvez/VIR-2025" color="orange" />
+                <Hero t={t} icon={GiRocket} href="https://github.com/kilian-le-calvez/VIR-2025" color={spaceColor.color} />
 
                 {/* Demo Media */}
                 <MediaGallery
                     title={t.demo_title}
-                    color="orange"
+                    color={spaceColor.color}
                     media={[
                         {
                             type: "video",
@@ -90,9 +95,9 @@ export default function SpaceVrGamePage() {
                 />
 
                 {/* Description & Features */}
-                <div className="card bg-orange-50">
+                <div className={`card ${spaceColor.bg}`}>
                     <Subtitle text={t.description_title} Icon={IoGameControllerOutline} />
-                    <p className="text-gray-800 leading-relaxed mb-6">
+                    <p className={`${mainColor.text_color} leading-relaxed mb-6`}>
                         {t.description_text}
                     </p>
 
@@ -108,7 +113,7 @@ export default function SpaceVrGamePage() {
                 </div>
 
                 {/* Mes Contributions */}
-                <div className="bg-white rounded-2xl shadow-sm p-8 mb-8">
+                <div className={`${mainColor.bg} rounded-2xl shadow-sm p-8 mb-8`}>
                     <Subtitle text={t.my_contributions_title} Icon={IoColorWandOutline} />
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                         {t.my_contributions.map((contribution, idx) => (
@@ -116,33 +121,30 @@ export default function SpaceVrGamePage() {
                                 key={idx}
                                 icon={contributionIcons[idx]}
                                 text={contribution}
-                                color="orange"
+                                color={spaceColor.color}
                             />
                         ))}
                     </div>
                 </div>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                     {/* Learning Section */}
                     <LearningSection
                         learn_title={t.learn_title}
                         learn_points={t.learn_points}
-                        color="orange"
+                        color={spaceColor.color}
                     />
 
                     {/* Tech Stack */}
                     <TechStack
                         title={t.tech_stack_title}
                         technologies={["Unity", "C#", "Meta Quest 3", "Blender", "VR Toolkit"]}
-                        color="orange"
+                        color={spaceColor.color}
                     />
                 </div>
 
                 {/* Footer */}
-                <Footer
-                    href="https://github.com/kilian-le-calvez/VIR-2025"
-                    text={t.footer}
-                />
+                <Footer />
 
             </div>
         </main>

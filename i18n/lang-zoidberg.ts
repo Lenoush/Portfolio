@@ -1,7 +1,6 @@
 // lib/lang-zoidberg.ts
 export const LANG_ZOIDBERG = {
     fr: {
-        footer: `Github de Léna`,
         title: "Classification de scans pulmonaires",
         subtitle: "Projet Data Science | Machine Learning | Deep Learning",
         intro: "Ce projet vise à **classifier des scans pulmonaires** en différentes catégories en utilisant des **techniques de machine learning et de deep learning**. L'objectif principal est de réaliser un **benchmark de plusieurs modèles** afin de sélectionner le plus performant pour la classification d'images médicales.",
@@ -89,7 +88,6 @@ export const LANG_ZOIDBERG = {
     },
 
     en: {
-        footer: `Lena's GitHub`,
         title: "Lung Scan Classification",
         subtitle: "Data Science | Machine Learning | Deep Learning Project",
         intro: "This project aims to **classify lung scans** into different categories using **machine learning and deep learning techniques**. The main objective is to **benchmark multiple models** to select the most effective one for medical image classification.",

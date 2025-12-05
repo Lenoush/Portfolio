@@ -1,8 +1,9 @@
-import { IoLogoGithub } from 'react-icons/io5';
-import {Title} from '@/app/components/titles'; 
-import COLOR_MAP from "@/app/colorMap";
 import { IconType } from 'react-icons/lib';
 import ReactMarkdown from 'react-markdown';
+import { IoLogoGithub } from 'react-icons/io5';
+
+import { Title } from '@/app/components/titles';
+import COLOR_MAP from '@/config/colorMap';
 
 type HeroProps = {
   t: {
@@ -15,11 +16,10 @@ type HeroProps = {
   color: string;
 };
 
-export default function Hero({ t, icon: Icon , href, color }: HeroProps) {
-  const colorKey = color && color in COLOR_MAP ? color : "emerald";
-  const { border , hover_text } = COLOR_MAP[colorKey];
+export default function Hero({ t, icon: Icon, href, color }: HeroProps) {
+  const colorKey = COLOR_MAP[color];
   return (
-    <div className={`card border ${border}`}>
+    <div className={`card border ${colorKey.border}`}>
       <div className={`flex justify-between items-center gap-6`}>
         <div>
           <Title text={t.title} Icon={Icon} />
@@ -33,7 +33,7 @@ export default function Hero({ t, icon: Icon , href, color }: HeroProps) {
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          className={`text-gray-900 ${hover_text} cursor-pointer flex-shrink-0 transition-colors`}
+          className={`text-gray-900 ${colorKey.hover_text} cursor-pointer flex-shrink-0 transition-colors`}
         >
           <IoLogoGithub className="text-7xl" />
         </a>
