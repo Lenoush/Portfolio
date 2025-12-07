@@ -4,6 +4,7 @@ import { useState } from "react";
 import { GrTestDesktop } from "react-icons/gr";
 
 import { Subtitle } from "@/app/components/titles";
+import { MAIN_COLOR } from "@/config/colors_settings";
 
 type ImageCategory = "healthy" | "bacterial" | "viral";
 
@@ -152,7 +153,7 @@ export default function TestInterface({ t, images }: TestInterfaceProps) {
     return (
         <div className="card">
             {/* Test */}
-            <Subtitle text={t.test_SVC_avec_PCA_title} Icon={GrTestDesktop}/>
+            <Subtitle text={t.test_SVC_avec_PCA_title} Icon={GrTestDesktop} />
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
                 {allCategories.map((category) => (
@@ -185,7 +186,7 @@ export default function TestInterface({ t, images }: TestInterfaceProps) {
                 <div className="flex items-end">
                     <button
                         onClick={resetSelection}
-                        className="w-full bg-purple-800 hover:bg-purple-700 text-white font-semibold py-2.5 px-4 rounded-lg transition-colors"
+                        className={`w-full ${MAIN_COLOR.bg_fonce} ${MAIN_COLOR.hover_bg} ${MAIN_COLOR.text_color_white} font-semibold py-2.5 px-4 rounded-lg transition-colors`}
                     >
                         {t.reset_button}
                     </button>
@@ -263,7 +264,7 @@ export default function TestInterface({ t, images }: TestInterfaceProps) {
                                     bgColor = "bg-green-100";
                                     textColor = "text-green-800";
                                     borderColor = "border-2 border-green-500";
-                                }else if (!isExpected && isPredicted) {
+                                } else if (!isExpected && isPredicted) {
                                     // Mauvaise prédiction - ROUGE
                                     bgColor = "bg-red-100";
                                     textColor = "text-red-800";

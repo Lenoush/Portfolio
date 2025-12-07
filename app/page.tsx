@@ -14,18 +14,15 @@ import LanguageSwitcher from "@/app/components/header_components/languageSwitche
 import Footer from "@/app/components/footer";
 import PersoButton from "@/app/components/home_components/persoButton";
 import ProjectButton from "@/app/components/home_components/projectButton";
-import COLOR_MAP from "@/config/colorMap";
+import { COLOR_MAP, MAIN_COLOR } from "@/config/colors_settings";
 import { PAGE_COLORS } from "@/config/theme";
 
 export default function Home() {
   const [lang, setLang] = useState<Language>("fr");
   const t = LANG[lang];
 
-  // Définir la couleur principale de la page
-  const mainColor = COLOR_MAP.main;
-
   return (
-    <div className={`min-h-screen ${mainColor.bg} py-8 px-4`}>
+    <div className={`min-h-screen ${MAIN_COLOR.bg} py-8 px-4`}>
       <div className="max-w-6xl mx-auto rounded-xl p-8">
         {/* Sélecteur de langue */}
         <div className="flex justify-end mb-6">
@@ -42,23 +39,23 @@ export default function Home() {
             className="rounded-full"
           />
           <div>
-            <h1 className={`text-4xl font-bold ${mainColor.title_color} mb-2`}>
+            <h1 className={`text-4xl font-bold ${MAIN_COLOR.title_color} mb-2`}>
               {t.title}
             </h1>
-            <h2 className={`text-xl ${mainColor.subtitle_color}`}>
+            <h2 className={`text-xl ${MAIN_COLOR.subtitle_color}`}>
               {t.subtitle}
             </h2>
           </div>
         </div>
 
-        <hr className={`${mainColor.border} mb-8`} />
+        <hr className={`${MAIN_COLOR.border} mb-8`} />
 
         {/* Présentation */}
-        <div className={` ${mainColor.text_color} mb-8 prose max-w-none`}>
+        <div className={` ${MAIN_COLOR.text_color} mb-8 prose max-w-none`}>
           <ReactMarkdown>{t.intro}</ReactMarkdown>
         </div>
 
-        <hr className={`${mainColor.border} mb-8`} />
+        <hr className={`${MAIN_COLOR.border} mb-8`} />
 
         {/* Informations de contact - 2 colonnes */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
@@ -87,7 +84,7 @@ export default function Home() {
               href="https://www.linkedin.com/in/lena-oudjman-0a36b6226/"
               target="_blank"
               rel="noopener noreferrer"
-              className={`text-blue-600 ${mainColor.hover} cursor-pointer transition-colors`}
+              className={`text-blue-600 ${MAIN_COLOR.hover_text} cursor-pointer transition-colors`}
             >
               <BsLinkedin className="text-7xl" />
             </a>
@@ -96,7 +93,7 @@ export default function Home() {
               href="https://github.com/Lenoush"
               target="_blank"
               rel="noopener noreferrer"
-              className={`text-gray-900 ${mainColor.hover} cursor-pointer transition-colors`}
+              className={`text-gray-900 ${MAIN_COLOR.hover_text} cursor-pointer transition-colors`}
             >
               <IoLogoGithub className="text-7xl" />
             </a>
@@ -106,14 +103,14 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
               download={true}
-              className={`text-gray-500 ${mainColor.hover} cursor-pointer transition-colors`}
+              className={`text-gray-500 ${MAIN_COLOR.hover_text} cursor-pointer transition-colors`}
             >
               <TbFileCv className="text-8xl" />
             </a>
           </div>
         </div>
 
-        <hr className={`${mainColor.border} mb-8`} />
+        <hr className={`${MAIN_COLOR.border} mb-8`} />
 
         {/* Projets */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6" id="projects">

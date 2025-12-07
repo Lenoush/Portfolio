@@ -1,6 +1,6 @@
 import { IoBuildOutline } from "react-icons/io5";
 import { Subtitle } from "@/app/components/titles";
-import COLOR_MAP from "@/config/colorMap";
+import { COLOR_MAP, MAIN_COLOR } from "@/config/colors_settings";
 
 type TechStackProps = {
     title: string;
@@ -10,7 +10,7 @@ type TechStackProps = {
 
 export default function TechStack({ title, technologies, color }: TechStackProps) {
     const colorKey = COLOR_MAP[color];
-    const mainColor = COLOR_MAP.main;
+    const mainColor = MAIN_COLOR;
 
     return (
         <div className="card">

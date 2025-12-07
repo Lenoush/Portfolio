@@ -2,8 +2,8 @@ import { Subsubtitle } from "@/app/components/titles";
 import { GoNumber } from "react-icons/go";
 import { LiaMicroscopeSolid } from "react-icons/lia";
 import { BsDatabaseCheck } from "react-icons/bs";
-import COLOR_MAP from "@/config/colorMap";
-import Link from "next/link";
+
+import { COLOR_MAP, MAIN_COLOR } from "@/config/colors_settings";
 
 type Scan = {
   path: string;
@@ -18,7 +18,7 @@ type DatasetStatProps = {
 
 export default function DatasetStat({ t, setLightboxImage, color }: DatasetStatProps) {
   const colorKey = COLOR_MAP[color];
-  const mainColor = COLOR_MAP.main;
+  const mainColor = MAIN_COLOR;
 
   return (
     <div>

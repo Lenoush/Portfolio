@@ -1,4 +1,5 @@
-import COLOR_MAP from "@/config/colorMap";
+import { COLOR_MAP, MAIN_COLOR } from "@/config/colors_settings";
+
 
 type Step = {
   text: string;
@@ -13,7 +14,7 @@ type PreprocessingProps = {
 
 export default function Preprocessing({ preprocessing_steps, setLightboxImage, color }: PreprocessingProps) {
   const colorKey = COLOR_MAP[color];
-  const mainColor = COLOR_MAP.main;
+  const mainColor = MAIN_COLOR;
 
   return (
     <div>

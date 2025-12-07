@@ -19,8 +19,8 @@ import LeftSidebarNavigation from "@/app/components/zoidberg_components/leftSide
 import DatasetStat from "@/app/components/zoidberg_components/datasetStat";
 import Preprocessing from "@/app/components/zoidberg_components/preprocessing";
 import ModelsBenchmark from "@/app/components/zoidberg_components/modelsBenchmark";
-import COLOR_MAP from "../../config/colorMap";
 import { PAGE_COLORS } from "@/config/theme";
+import { COLOR_MAP, MAIN_COLOR } from "@/config/colors_settings";
 
 type Language = "fr" | "en";
 
@@ -28,7 +28,7 @@ export default function ZoidbergPage() {
     const [lang, setLang] = useState<Language>("fr");
     const t = LANG_ZOIDBERG[lang];
 
-    const mainColor = COLOR_MAP.main;
+    const mainColor = MAIN_COLOR;
     const zoidbergColor = COLOR_MAP[PAGE_COLORS.zoidberg];
 
 
@@ -62,9 +62,9 @@ export default function ZoidbergPage() {
                     <div className="flex flex-col md:flex-row min-h-[600px]">
 
                         {/* Left Sidebar Navigation */}
-                        <LeftSidebarNavigation 
-                            sections={sections} 
-                            activeSection={activeSection} 
+                        <LeftSidebarNavigation
+                            sections={sections}
+                            activeSection={activeSection}
                             setActiveSection={setActiveSection}
                             color={zoidbergColor.color}
                             scrollContainerRef={scrollContainerRef}

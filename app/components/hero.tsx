@@ -3,7 +3,7 @@ import ReactMarkdown from 'react-markdown';
 import { IoLogoGithub } from 'react-icons/io5';
 
 import { Title } from '@/app/components/titles';
-import COLOR_MAP from '@/config/colorMap';
+import { COLOR_MAP } from '@/config/colors_settings';
 
 type HeroProps = {
   t: {

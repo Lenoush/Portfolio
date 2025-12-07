@@ -1,6 +1,7 @@
 "use client";
 
-import COLOR_MAP from "@/config/colorMap";
+import { MAIN_COLOR } from "@/config/colors_settings";
+
 
 type LanguageSwitcherProps = {
     lang: "fr" | "en";
@@ -8,7 +9,7 @@ type LanguageSwitcherProps = {
 };
 
 export default function LanguageSwitcher({ lang, setLang }: LanguageSwitcherProps) {
-    const mainColor = COLOR_MAP.main;
+    const mainColor = MAIN_COLOR;
 
     return (
         <div className={`inline-flex rounded-lg border ${mainColor.border} p-1`}>

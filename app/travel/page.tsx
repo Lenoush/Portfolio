@@ -13,8 +13,8 @@ import LearningSection from "@/app/components/learningSection";
 import { Subtitle } from "@/app/components/titles";
 import Hero from "@/app/components/hero";
 import MediaGallery from "@/app/components/mediaGallery";
-import COLOR_MAP from "../../config/colorMap";
 import { PAGE_COLORS } from "@/config/theme";
+import { COLOR_MAP, MAIN_COLOR } from "@/config/colors_settings";
 
 type Lang = "fr" | "en";
 
@@ -22,7 +22,7 @@ export default function TravelPage() {
     const [lang, setLang] = useState<Lang>("fr");
     const t = TRAVEL[lang];
 
-    const mainColor = COLOR_MAP.main;
+    const mainColor = MAIN_COLOR;
     const travelColor = COLOR_MAP[PAGE_COLORS.travel];
 
     // Parser les étapes techniques
@@ -83,7 +83,7 @@ export default function TravelPage() {
                                 number={idx + 1}
                                 title={step.title}
                                 content={step.content}
-                                color="green"
+                                color={travelColor.color}
                             />
                         ))}
                     </div>

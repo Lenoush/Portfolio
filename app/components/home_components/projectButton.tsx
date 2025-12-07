@@ -1,6 +1,7 @@
-import COLOR_MAP from "@/config/colorMap";
 import { IconType } from "react-icons/lib";
 import { Subtitle } from "@/app/components/titles";
+
+import { COLOR_MAP, MAIN_COLOR } from "@/config/colors_settings";
 
 type ProjectButtonProps = {
   title: string;
@@ -21,7 +22,7 @@ export default function ProjectButton({
 }: ProjectButtonProps) {
 
   const colorKey = COLOR_MAP[color];
-  const mainColor = COLOR_MAP.main;
+  const mainColor = MAIN_COLOR;
 
   const handleClickOpenLink = () => {
     window.open(link, targetBlank ? "_blank" : "_self");

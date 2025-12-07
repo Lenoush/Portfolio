@@ -11,8 +11,8 @@ import LearningSection from "@/app/components/learningSection";
 import { Subtitle } from "@/app/components/titles";
 import Hero from "@/app/components/hero";
 import MediaGallery from "@/app/components/mediaGallery";
-import COLOR_MAP from "@/config/colorMap";
 import { PAGE_COLORS } from "@/config/theme";
+import { COLOR_MAP, MAIN_COLOR } from "@/config/colors_settings";
 
 
 export default function BattleshipPage() {
@@ -21,7 +21,7 @@ export default function BattleshipPage() {
 
     // Définir la couleur principale de la page
     const battleshipColor = COLOR_MAP[PAGE_COLORS.battleship];
-    const mainColor = COLOR_MAP.main; 
+    const mainColor = MAIN_COLOR;
 
     return (
         <main className={`min-h-screen ${mainColor.bg_page} py-8 px-4`}>

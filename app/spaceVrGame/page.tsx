@@ -30,8 +30,9 @@ import TechStack from "@/app/components/techStack";
 import { Subtitle } from "@/app/components/titles";
 import Hero from "@/app/components/hero";
 import MediaGallery from "@/app/components/mediaGallery";
-import COLOR_MAP from "@/config/colorMap";
 import { PAGE_COLORS } from "@/config/theme";
+import { COLOR_MAP, MAIN_COLOR } from "@/config/colors_settings";
+
 
 type Lang = "fr" | "en";
 
@@ -39,7 +40,7 @@ export default function SpaceVrGamePage() {
     const [lang, setLang] = useState<Lang>("fr");
     const t = LANG_SPACEVRGAME[lang];
 
-    const mainColor = COLOR_MAP.main;
+    const mainColor = MAIN_COLOR;
     const spaceColor = COLOR_MAP[PAGE_COLORS.spaceVrGame];
 
     const featureIcons = [

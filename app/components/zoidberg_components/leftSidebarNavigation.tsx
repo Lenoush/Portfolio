@@ -1,5 +1,5 @@
-import COLOR_MAP from "@/config/colorMap";
 import type { ComponentType } from "react";
+import { COLOR_MAP, MAIN_COLOR } from "@/config/colors_settings";
 
 type Section = {
   id: string;
@@ -24,7 +24,7 @@ export default function LeftSidebarNavigation({
 }: LeftSidebarNavigationProps) {
 
   const colorKey = COLOR_MAP[color];
-  const mainColor = COLOR_MAP.main;
+  const mainColor = MAIN_COLOR;
 
   const handleSectionChange = (id: string) => {
     setActiveSection(id);
